@@ -1,0 +1,11 @@
+# Нууцлалтай файлууд
+includes/functions.php
+.env
+google-login.php
+# Хэрэгцээгүй том хавтаснууд
+PHPMailer/
+vendor/
+uploads/
+setup/
+*.log
+

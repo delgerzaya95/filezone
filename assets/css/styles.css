@@ -1,0 +1,755 @@
+
+
+.file-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+
+}
+
+.gradient-bg {
+
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+
+}
+
+.nav-link:hover {
+
+    color: #7c3aed;
+
+}
+
+.login-form {
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+
+}
+
+.file-type-badge {
+
+    position: absolute;
+
+    top: -10px;
+
+    right: -10px;
+
+    background-color: #7c3aed;
+
+    color: white;
+
+    border-radius: 50%;
+
+    width: 24px;
+
+    height: 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 12px;
+
+}
+
+.category-summary {
+
+    transition: all 0.3s ease;
+
+}
+
+.category-summary:hover {
+
+    background-color: #f3f4f6;
+
+    border-radius: 4px;
+
+}
+
+.popular-category {
+
+    transition: all 0.3s ease;
+
+    border-left: 4px solid #7c3aed;
+
+}
+
+.popular-category:hover {
+
+    transform: translateX(5px);
+
+    background-color: #f9f5ff;
+
+}
+
+.trending-badge {
+
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+
+    color: white;
+
+}
+
+.category-badge {
+
+    transition: all 0.2s ease;
+
+    cursor: pointer;
+
+}
+
+
+
+.subcategory-item {
+
+    transition: all 0.2s ease;
+
+}
+
+
+
+.upload-container {
+
+    transition: all 0.2s ease;
+
+}
+
+
+
+.upload-container:hover {
+
+    border-color: #8b5cf6;
+
+}
+
+
+
+.gradient-bg {
+
+    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+
+}
+
+.profile-header {
+
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+
+}
+
+.stat-card {
+
+    transition: all 0.3s ease;
+
+}
+
+.stat-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+
+}
+
+.tab-active {
+
+    border-bottom: 3px solid #7c3aed;
+
+    font-weight: 600;
+
+    color: #7c3aed;
+
+}
+
+.file-card:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+}
+
+.transaction-row:hover {
+
+    background-color: #f9fafb;
+
+}
+
+.progress-bar {
+
+    transition: width 0.5s ease;
+
+}
+
+.badge-premium {
+
+    background: linear-gradient(135deg, #f59e0b 0%, #fcd34d 100%);
+
+}
+
+.badge-verified {
+
+    background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+
+}
+
+.tab-content {
+
+    display: none;
+
+}
+
+.tab-content.active {
+
+    display: block;
+
+}
+
+#earningsChart {
+
+    width: 100% !important;
+
+    height: 100% !important;
+
+}
+
+.category-card {
+
+    transition: all 0.3s ease;
+
+}
+
+.category-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+
+    background: linear-gradient(135deg, #f0f0ff 0%, #f5f7ff 100%);
+
+}
+
+.gradient-bg {
+
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+
+}
+
+.nav-link:hover {
+
+    color: #7c3aed;
+
+}
+
+.category-summary {
+
+    transition: all 0.3s ease;
+
+}
+
+.category-summary:hover {
+
+    background-color: #f3f4f6;
+
+    border-radius: 4px;
+
+}
+
+.subcategory-item {
+
+    position: relative;
+
+    padding-left: 16px;
+
+}
+
+.subcategory-item:before {
+
+    content: "•";
+
+    position: absolute;
+
+    left: 0;
+
+    color: #7c3aed;
+
+}
+
+.file-card:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+
+}
+
+.category-sidebar {
+
+    position: sticky;
+
+    top: 20px;
+
+}
+
+.file-type-icon {
+
+    font-size: 1.5rem;
+
+}
+
+.price-tag {
+
+    background-color: #4f46e5;
+
+    color: white;
+
+    padding: 2px 8px;
+
+    border-radius: 12px;
+
+    font-size: 0.8rem;
+
+    font-weight: 600;
+
+}
+
+.free-tag {
+
+    background-color: #10b981;
+
+    color: white;
+
+    padding: 2px 8px;
+
+    border-radius: 12px;
+
+    font-size: 0.8rem;
+
+    font-weight: 600;
+
+}
+
+.file-info-card {
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+    transition: all 0.3s ease;
+
+}
+
+.file-info-card:hover {
+
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+}
+
+.gradient-bg {
+
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+
+}
+
+.nav-link:hover {
+
+    color: #7c3aed;
+
+}
+
+.preview-image {
+
+    max-height: 500px;
+
+    object-fit: contain;
+
+}
+
+.tab-active {
+
+    border-bottom: 3px solid #7c3aed;
+
+    font-weight: 600;
+
+    color: #7c3aed;
+
+}
+
+.price-tag {
+
+    background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+
+    color: white;
+
+    padding: 4px 8px;
+
+    border-radius: 4px;
+
+    font-weight: bold;
+
+    font-size: 0.9rem;
+
+}
+
+.tab-content {
+
+    display: none;
+
+}
+
+.tab-content.active {
+
+    display: block;
+
+}
+
+.payment-method {
+
+    transition: all 0.3s ease;
+
+    border: 2px solid #e2e8f0;
+
+}
+
+.payment-method:hover {
+
+    border-color: #7c3aed;
+
+    transform: translateY(-3px);
+
+}
+
+.payment-method.selected {
+
+    border-color: #7c3aed;
+
+    background-color: #f5f3ff;
+
+}
+
+.progress-bar {
+
+    transition: width 0.5s ease;
+
+}
+
+.qr-code {
+
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="white"/><path d="M20,20 L20,80 L80,80 L80,20 Z M30,30 L30,70 L70,70 L70,30 Z M40,40 L40,60 L60,60 L60,40 Z" fill="black"/></svg>') center center no-repeat;
+
+    background-size: contain;
+
+}
+
+/* Avatar upload styles */
+
+#avatar-preview {
+
+    transition: all 0.3s ease;
+
+}
+
+
+
+#avatar-preview:hover {
+
+    opacity: 0.8;
+
+}
+
+
+
+#avatar-form label[for="avatar-input"] {
+
+    transition: all 0.3s ease;
+
+}
+
+
+
+#avatar-form label[for="avatar-input"]:hover {
+
+    transform: scale(1.1);
+
+}
+
+.logo-container {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 0px;
+
+}
+
+.logo-image {
+
+    background-image: url('../../icons/logo.png');
+
+    background-size: contain;
+
+    background-repeat: no-repeat;
+
+    background-position: center;
+
+    width: 90px; /* Adjust based on your logo size */
+
+    height: 90px; /* Adjust based on your logo size */
+
+    display: block;
+
+    transition: opacity 0.3s ease; /* Smooth hover effect */
+
+}
+
+.logo-image:hover {
+
+    opacity: 0.8; /* Hover effect */
+
+}
+
+.logo-text {
+    font: 'Drunk Text';
+
+    font-size: 1.875rem; /* 3xl */
+
+    font-weight: bold;
+
+    color: #1e3a8a; /* blue-900 */
+
+}
+
+.tagline {
+
+    margin-left: 1rem;
+
+    color: #4b5563; /* gray-600 */
+
+    font-style: italic;
+
+}
+
+@media (max-width: 768px) {
+
+    .logo-container {
+
+        flex-direction: column;
+
+        gap: 8px;
+
+    }
+
+    .tagline {
+
+        margin-left: 0;
+
+        margin-top: 0.5rem;
+
+        text-align: center;
+
+    }
+
+}
+
+@keyframes glowing-border {
+    0% { box-shadow: 0 0 5px #34d399, 0 0 10px #34d399; }
+    50% { box-shadow: 0 0 20px #6ee7b7, 0 0 30px #6ee7b7; }
+    100% { box-shadow: 0 0 5px #34d399, 0 0 10px #34d399; }
+}
+.glowing-button {
+    animation: glowing-border 2s ease-in-out infinite;
+}
+
+    .file-preview-box {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 150px;
+        border-radius: 8px;
+        color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        flex-shrink: 0;
+        /* Icon-ий хэмжээг томруулсан */
+        font-size: 4rem; /* 64px */
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .file-preview-box::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-width: 0 25px 25px 0;
+        border-style: solid;
+        border-color: #ffffff #ffffff rgba(0,0,0,0.15) rgba(0,0,0,0.15);
+        box-shadow: -2px 2px 3px rgba(0,0,0,0.1);
+    }
+
+    /* --- Өнгөнүүд хэвээрээ үлдэнэ --- */
+    .bg-pdf { background: linear-gradient(135deg, #fb7185 0%, #ef4444 100%); }
+    .bg-doc { background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%); }
+    .bg-xls { background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%); }
+    .bg-ppt { background: linear-gradient(135deg, #fb923c 0%, #f97316 100%); }
+    .bg-txt { background: linear-gradient(135deg, #b0b0b0 0%, #a1a1aa 100%); }
+    .bg-img { background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%); }
+    .bg-design { background: linear-gradient(135deg, #52525b 0%, #3f3f46 100%); }
+    .bg-audio { background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%); }
+    .bg-video { background: linear-gradient(135deg, #3054b2 0%, #1e40af 100%); }
+    .bg-archive { background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%); }
+    .bg-default { background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%); }
+/* ================================== */
+/* LOADING SCREEN            */
+/* ================================== */
+
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff; /* Цагаан дэвсгэр */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Бусад бүх зүйлээс дээр харагдана */
+    transition: opacity 0.5s ease; /* Алга болохдоо зөөлөн эффекттэй */
+}
+
+.loader {
+    border: 8px solid #f3f3f3; /* Цайвар саарал хүрээ */
+    border-top: 8px solid #8B5CF6; /* Ягаан өнгийн дээд хүрээ */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1.5s linear infinite; /* Эргэлдэх анимэйшн */
+}
+
+.loading-text {
+    margin-top: 20px;
+    color: #4B5563; /* Саарал өнгийн текст */
+    font-size: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Эхэндээ хуудасны үндсэн контентыг нуух класс */
+.content-hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+/* Upload хийх үеийн тохиргоо */
+#loader-wrapper.upload-mode .loader,
+#loader-wrapper.upload-mode .loading-text {
+    display: none; /* Энгийн loader-г нуух */
+}
+
+#loader-wrapper.upload-mode #upload-progress-container {
+    display: block !important; /* Progress bar-г харуулах */
+}
+
+    .bank-links-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px; /* Элемент хоорондын зай */
+    }
+    .bank-link {
+        display: flex;
+        align-items: center;
+        padding: 8px 12px;
+        border: 1px solid #e1e1e1;
+        border-radius: 8px;
+        text-decoration: none !important; /* Давхар зураас гарахаас сэргийлнэ */
+        color: #333;
+        background-color: #f8f9fa;
+        transition: background-color 0.2s, box-shadow 0.2s;
+    }
+    .bank-link:hover {
+        background-color: #fff;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .bank-link img {
+        height: 28px;
+        width: 28px;
+        object-fit: contain;
+        margin-right: 10px;
+    }
+    .bank-link span {
+        font-size: 14px;
+        font-weight: 500;
+        white-space: nowrap; /* Банкны нэр нэг мөрөнд байх */
+    }
+
+ /* Хэрэв дэлгэцийн өргөн 768px-с их байвал (компьютер, таблет) mobile-only гэсэн класстай элементийг нууна */
+    @media (min-width: 768px) {
+        .mobile-only {
+            display: none;
+        }
+    }
+/* Чирж байгаа зургийн загвар */
+.sortable-ghost {
+    opacity: 0.4;
+    background-color: #f3f4f6;
+    border: 2px dashed #a855f7;
+}
+/* Чирэхэд сонгогдсон зургийн загвар */
+.sortable-drag {
+    cursor: grabbing;
+}
+/* Зургийн контейнер дээр курсор өөрчлөх */
+#image-preview-container .relative {
+    cursor: grab;
+}
+
+/* Editor-оос орж ирсэн текстийг гоё харагдуулах загвар */
+.description-content {
+    line-height: 1.6;
+}
+
+.description-content p {
+    margin-bottom: 0.75em; /* Догол мөрийн зай */
+}
+
+.description-content ul {
+    list-style-type: disc; /* Цэгтэй жагсаалт */
+    padding-left: 1.5em;   /* Зүүн талаас зай авах */
+    margin-bottom: 0.75em;
+}
+
+.description-content ol {
+    list-style-type: decimal; /* Дугаартай жагсаалт */
+    padding-left: 1.5em;
+    margin-bottom: 0.75em;
+}
+
+.description-content li {
+    margin-bottom: 0.25em;
+}
+
+.description-content strong, 
+.description-content b {
+    font-weight: 700; /* Тод болгох */
+    color: #111827;   /* Хар өнгөтэй болгох (Tailwind gray-900) */
+}
+
+.description-content em, 
+.description-content i {
+    font-style: italic; /* Налуу болгох */
+}
+
+/* Линк цэнхэр, доогуураа зураастай харагдах ёстой */
+.description-content a {
+    color: #3b82f6; /* Цэнхэр өнгө */
+    text-decoration: underline; /* Доогуур зураас */
+    font-weight: 500;
+}
+
+.description-content a:hover {
+    color: #2563eb; /* Хулгана хүргэхэд тодрох */
+}
