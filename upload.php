@@ -1,4 +1,5 @@
 <?php
+set_time_limit(1800); // 30 минут (300MB файлыг удаан сүлжээгээр ч хуулахад хангалттай)
 ob_start();
 
 // Include essential files first
@@ -349,46 +350,101 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // ---------------------------------------------------------
                 // 6. ФАЙЛЫГ ЗӨӨХ (MOVE)
                 // ---------------------------------------------------------
+                // ---------------------------------------------------------
+                // 6. SCALEWAY S3 РУУ ХУУЛАХ (Scaleway руу шилжүүлсэн хэсэг)
+                // ---------------------------------------------------------
+                
+                // S3 Client үүсгэх
+                $s3 = get_s3_client();
+                $bucketName = 'filezone-bucket'; // Таны Scaleway Bucket нэр
+                
+                // S3 дээр хадгалах зам (Жишээ нь: files/1/15/minii_file.pdf)
+                // user_id болон file_id-аар хавтас үүсгэж цэгцтэй байлгана
+                $s3Key = 'files/' . $user_id . '/' . $file_id . '/' . $finalNameWithExt;
+
+                // Эх файл хаана байгааг тодорхойлох
+                $sourceFile = '';
                 if (!empty($resumableFile)) {
-                    $tempSourcePath = 'uploads/temp/' . $resumableFile;
-                    
-                    if (file_exists($tempSourcePath)) {
-                        if (filesize($tempSourcePath) > 0) {
-                            // RENAME оролдоно (Энэ нь маш хурдан)
-                            if (!@rename($tempSourcePath, $finalFilePath)) {
-                                // Хэрэв rename болохгүй бол (жишээ нь өөр дискний partition руу)
-                                // STREAM ашиглаж хуулна (Энэ нь copy()-оос санах ойд ачаалал багатай)
-                                
-                                $src = fopen($tempSourcePath, 'rb');
-                                $dest = fopen($finalFilePath, 'wb');
-                                
-                                if ($src && $dest) {
-                                    while (!feof($src)) {
-                                        // 8MB-аар хэсэгчилж уншиж бичих (Server memory дүүргэхгүй)
-                                        if (fwrite($dest, fread($src, 8 * 1024 * 1024)) === false) {
-                                            throw new Exception("Файл бичихэд алдаа гарлаа.");
-                                        }
-                                        // Цаг сунгах (Loop бүрт time limit-ийг reset хийнэ)
-                                        set_time_limit(0); 
-                                    }
-                                    fclose($src);
-                                    fclose($dest);
-                                    unlink($tempSourcePath); // Temp файлаа устгах
-                                } else {
-                                    throw new Exception("Файлыг зөөж чадсангүй (Stream error).");
-                                }
-                            }
-                        } else {
-                             throw new Exception("Файл хоосон байна (0 byte).");
+                    $sourceFile = 'uploads/temp/' . $resumableFile;
+                } elseif (isset($mainFile)) {
+                    $sourceFile = $mainFile['tmp_name'];
+                }
+
+                // ---------------------------------------------------------
+                // 6. SCALEWAY S3 РУУ ХУУЛАХ (Debug хувилбар)
+                // ---------------------------------------------------------
+                
+                // Лог бичих функц
+                function write_log($message) {
+                    $logFile = __DIR__ . '/s3_upload_debug.log';
+                    $time = date('Y-m-d H:i:s');
+                    file_put_contents($logFile, "[$time] $message" . PHP_EOL, FILE_APPEND);
+                }
+
+                write_log("Эхэлж байна. User ID: $user_id, File ID: $file_id");
+
+                // S3 Client үүсгэх
+                try {
+                    $s3 = get_s3_client();
+                    write_log("S3 Client амжилттай үүслээ.");
+                } catch (Exception $e) {
+                    write_log("S3 Client үүсгэхэд алдаа: " . $e->getMessage());
+                    throw $e;
+                }
+
+                $bucketName = 'filezone-bucket'; 
+                $s3Key = 'files/' . $user_id . '/' . $file_id . '/' . $finalNameWithExt;
+
+                // Эх файл хаана байгааг тодорхойлох
+                $sourceFile = '';
+                if (!empty($resumableFile)) {
+                    $sourceFile = 'uploads/temp/' . $resumableFile;
+                } elseif (isset($mainFile)) {
+                    $sourceFile = $mainFile['tmp_name'];
+                }
+
+                write_log("Эх файл: $sourceFile");
+
+                if (file_exists($sourceFile)) {
+                    $fileSize = filesize($sourceFile);
+                    write_log("Файл олдлоо. Хэмжээ: " . round($fileSize / 1024 / 1024, 2) . " MB");
+
+                    try {
+                        write_log("S3 руу хуулж эхэллээ (Multipart)...");
+                        
+                        // S3 руу файл хуулах (Multipart Upload сайжруулсан тохиргоотой)
+                        $uploader = new \Aws\S3\MultipartUploader($s3, $sourceFile, [
+                            'bucket' => $bucketName,
+                            'key'    => $s3Key,
+                            'acl'    => 'private',
+                            'concurrency' => 5, // 5 хэсгийг зэрэг хуулна (Хурдыг нэмнэ)
+                            'part_size'   => 5 * 1024 * 1024, // Нэг хэсгийн хэмжээ 5MB
+                        ]);
+
+                        // Хуулах үйлдлийг гүйцэтгэх
+                        $result = $uploader->upload();
+
+                        write_log("S3 руу хуулах үйлдэл дууслаа. URL: " . $result['ObjectURL']);
+
+                        // DB-д хадгалах замыг S3-ийн Key-ээр солих
+                        $finalFilePath = $s3Key;
+
+                        // Түр файлыг устгах
+                        if (!empty($resumableFile)) {
+                            @unlink($sourceFile);
+                            write_log("Түр файлыг устгалаа.");
                         }
-                    } else {
-                        throw new Exception("Temp файл олдсонгүй.");
+
+                    } catch (Aws\Exception\AwsException $e) {
+                        write_log("S3 AWS Алдаа: " . $e->getMessage());
+                        throw new Exception("S3 Upload Error: " . $e->getMessage());
+                    } catch (Exception $e) {
+                        write_log("Ерөнхий алдаа: " . $e->getMessage());
+                        throw new Exception("Upload Error: " . $e->getMessage());
                     }
                 } else {
-                    // Энгийн файл upload
-                    if (isset($mainFile) && !move_uploaded_file($mainFile['tmp_name'], $finalFilePath)) {
-                        throw new Exception("Файлыг хадгалж чадсангүй.");
-                    }
+                    write_log("Эх файл олдсонгүй! ($sourceFile)");
+                    throw new Exception("Эх файл олдсонгүй.");
                 }
                 
                 // ---------------------------------------------------------

@@ -17,8 +17,8 @@ RewriteRule ^tools/(.*)$ http://47.236.115.36:5000/$1 [P,L]
 # For more information, read our documentation (https://go.cpanel.net/EA4ModifyINI)
 <IfModule php8_module>
    php_flag display_errors On
-   php_value max_execution_time 300
-   php_value max_input_time 600
+   php_value max_execution_time 1800
+   php_value max_input_time 1800
    php_value max_input_vars 1000
    php_value memory_limit 512M
    php_value post_max_size 300M
@@ -29,8 +29,8 @@ RewriteRule ^tools/(.*)$ http://47.236.115.36:5000/$1 [P,L]
 </IfModule>
 <IfModule lsapi_module>
    php_flag display_errors On
-   php_value max_execution_time 300
-   php_value max_input_time 600
+   php_value max_execution_time 1800
+   php_value max_input_time 1800
    php_value max_input_vars 1000
    php_value memory_limit 512M
    php_value post_max_size 300M
